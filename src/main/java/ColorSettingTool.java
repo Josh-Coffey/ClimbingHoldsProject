@@ -48,11 +48,23 @@ public class ColorSettingTool {
         }
     }
 
-    public void printListOfHolds(){
+    private void printListOfHolds(){
         for(Color color:holds){
             String rgb=""+color.getRed()+""+color.getGreen()+""+color.getBlue();
             System.out.println(rgb);
         }
+    }
+
+    private int redMeanColorDifference(Color one, Color two){
+        int r1 = one.getRed();
+        int g1 = one.getGreen();
+        int b1 = one.getBlue();
+        int r2 = two.getRed();
+        int g2 = two.getGreen();
+        int b2 = two.getBlue();
+        double rBar = 0.5 * (r1+r2);
+        double deltaC=Math.sqrt((2+rBar/256)*Math.pow((r1-r2),2)+4*Math.pow((g1-g2),2)+(2+(255-rBar)/256)*Math.pow((b1-b2),2));
+        return (int)(Math.round(deltaC));
     }
 
     
