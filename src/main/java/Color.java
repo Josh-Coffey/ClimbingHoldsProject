@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 public class Color {
     //this class defines a color as RGB
     //might want to add method to go from english color names to RGB but would be tedious.
@@ -5,6 +7,7 @@ public class Color {
     private int red;
     private int green;
     private int blue;
+    private DecimalFormat decFormat = new DecimalFormat("000"); //used for 3 digit rgb with leading zeroes
 
     public int getRed() {
         return red;
@@ -25,12 +28,17 @@ public class Color {
         this.blue = blue;
     }
 
-    //can instantiate color using hexadecimal
+    //can instantiate color using hexadecimal. will auto convert from hexadecimal to rgb
     public Color(String color){
         int[] rgb = hexToRGB(color);
         this.red = rgb[0];
         this.green=rgb[1];
         this.blue=rgb[2];
+    }
+
+    //
+    public String printRGB(){
+        return decFormat.format(getRed()) + decFormat.format(getGreen()) + decFormat.format(getBlue());
     }
 
     //converts from hexadecimal color to RGB
