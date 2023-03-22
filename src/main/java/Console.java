@@ -16,6 +16,7 @@ public class Console {
         System.out.println("(3) print list of colors");
         System.out.println("(4) sort colors");
         System.out.println("(5) compare two colors");
+        System.out.println("(9) generate 5 random colors");
         System.out.println("(0) exit");
     }
 
